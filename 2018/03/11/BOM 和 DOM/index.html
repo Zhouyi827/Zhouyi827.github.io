@@ -19,13 +19,20 @@
   
   
   
-  <meta property="og:type" content="website">
+  <meta name="description" content="BOM 和 DOM标签（空格分隔）： JavaScript基础  什么是 BOM ?1.浏览器对象模型 Browser Object Model2.BOM的核心对象是window，同时window也是JavaScript的全局对象3.BOM主要负责来对浏览器窗口进行操作和窗口与窗口之间的交互  主要包括：navigator 导航器对象、history 历史对象、screen、显示器对象、locat">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Week of blog.">
-<meta property="og:url" content="http://Zhouyi827.github.io/index.html">
+<meta property="og:url" content="http://Zhouyi827.github.io/2018/03/11/BOM 和 DOM/index.html">
 <meta property="og:site_name" content="Week of blog.">
+<meta property="og:description" content="BOM 和 DOM标签（空格分隔）： JavaScript基础  什么是 BOM ?1.浏览器对象模型 Browser Object Model2.BOM的核心对象是window，同时window也是JavaScript的全局对象3.BOM主要负责来对浏览器窗口进行操作和窗口与窗口之间的交互  主要包括：navigator 导航器对象、history 历史对象、screen、显示器对象、locat">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://static.zybuluo.com/maxleader/q4dk6wwf807brlyadspquzof/2.png">
+<meta property="og:image" content="http://static.zybuluo.com/maxleader/sydkjhq46k0buvg08w8mrpul/1.jpg">
+<meta property="og:updated_time" content="2018-03-11T05:41:21.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Week of blog.">
+<meta name="twitter:description" content="BOM 和 DOM标签（空格分隔）： JavaScript基础  什么是 BOM ?1.浏览器对象模型 Browser Object Model2.BOM的核心对象是window，同时window也是JavaScript的全局对象3.BOM主要负责来对浏览器窗口进行操作和窗口与窗口之间的交互  主要包括：navigator 导航器对象、history 历史对象、screen、显示器对象、locat">
+<meta name="twitter:image" content="http://static.zybuluo.com/maxleader/q4dk6wwf807brlyadspquzof/2.png">
   
     <link rel="alternate" href="/atom.xml" title="Week of blog." type="application/atom+xml">
   
@@ -77,7 +84,7 @@ var themeMenus = {};
 </script>
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   <header id="allheader" class="site-header" role="banner">
@@ -149,116 +156,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main">
-  
-    <article id="post-apply和call的用法"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2018/03/11/apply和call的用法/" class="article-date">
-	  <time datetime="2018-03-11T05:41:52.547Z" itemprop="datePublished">三月 11, 2018</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="apply和call的用法"><a href="#apply和call的用法" class="headerlink" title="apply和call的用法"></a>apply和call的用法</h1><p>标签（空格分隔）： JS面向对象编程 学习笔记</p>
-<hr>
-<h3 id="call-和-apply"><a href="#call-和-apply" class="headerlink" title="call 和 apply"></a>call 和 apply</h3><p>EC3给Function的原型定义了两个方法，它们是 Function.prototype.call 和 Function.prototype.apply。在实际的开发中，特别是函数式编程风格的代码中，call和apply尤为重要。能熟练的使用这两个方法模式我们真正成为一名JavaScript程序员的重要一步。</p>
-<hr>
-<h3 id="call-和-apply-的区别"><a href="#call-和-apply-的区别" class="headerlink" title="call 和 apply 的区别"></a>call 和 apply 的区别</h3><p>它们的作用其实是一模一样的，区别仅仅在于传入的参数形式不同。</p>
-<blockquote>
-<ul>
-<li>apply 接受两个参数，第一个参数用来制定函数体内this的指向，第二个参数为一个带下标的集合，这个集合可以为数组，也可以为类数组，apply方法把这个集合中的元素作为参数传递给被调用的函数。</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fn = function (a,b,c)&#123;</span><br><span class="line">    alert([a,b,c,]);  // [1,2,3]</span><br><span class="line">&#125;;</span><br><span class="line">fn.apply(null,[1,2,3])</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>call 传入的参数数量不固定，第一个参用来制定函数体内的this指向，从第二个参数开始，每个参数被依次传入函数体内。</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fn = function (a,b,c)&#123;</span><br><span class="line">    alert([1,2,3])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>当使用 call 或者 apply 时，如果我们传入的第一个参数为null，函数体内的this会默认指向宿主对象，在浏览器中，如果使用严格模式，则还为null。</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var fn = function ()&#123;</span><br><span class="line">    alert(this === window) //true</span><br><span class="line">&#125;</span><br><span class="line">fn.call(null)</span><br><span class="line"></span><br><span class="line">var fn2 = function ()&#123;</span><br><span class="line">    &quot;use strict&quot;</span><br><span class="line">    alert(this === null) //true</span><br><span class="line">&#125;</span><br><span class="line">fn2.call(null)</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="call-和-apply-的用途"><a href="#call-和-apply-的用途" class="headerlink" title="call 和 apply 的用途"></a>call 和 apply 的用途</h3><h4 id="1-改变this指向，直接看代码"><a href="#1-改变this指向，直接看代码" class="headerlink" title="1.改变this指向，直接看代码"></a>1.改变this指向，直接看代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var obj1 = &#123;</span><br><span class="line">    name:&quot;fq&quot;</span><br><span class="line">&#125;;</span><br><span class="line">var obj2 = &#123;</span><br><span class="line">    name:&quot;mm&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">window.name = &apos;window&apos;;</span><br><span class="line"></span><br><span class="line">var getName = function ()&#123;</span><br><span class="line">    alert(this.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getName() // window</span><br><span class="line">getName.call(obj1)  //fq</span><br><span class="line">getName.call(obj2)  //mm</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>在实际开发中，经常会遇到this指向被不经意改变的场景，比如有一个div节点，div节点的onclick事件中的this本来是指向这个div的。</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;div&apos;).onclick = function ()&#123;</span><br><span class="line">    alert(this.id)   //div</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>假设该事件函数中有一个内部的函数fn，在事件内部调用fn函数时，fn函数体内的this就指向了window，而不是我们预期的div，这个时候我们就可以用call 和 apply去改变this指向了。</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&apos;div&apos;).onclick = function ()&#123;</span><br><span class="line">    alert(this.id)   //div</span><br><span class="line">    var fn = function ()&#123;</span><br><span class="line">        alert(this.id)  //undefined</span><br><span class="line">    &#125;;</span><br><span class="line">    fn();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//之前都是保存一下this，更优雅的做法可以这样</span><br><span class="line">document.getElementById(&apos;div&apos;).onclick = function ()&#123;</span><br><span class="line">    alert(this.id)   //div</span><br><span class="line">    var fn = function ()&#123;</span><br><span class="line">        alert(this.id)  //undefined</span><br><span class="line">    &#125;;</span><br><span class="line">    fn.call(this);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>案例:内部丢失的this<br>或许你某天会觉得 document.getElementById函数有点太长了,也去你会这么做:</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var getId = document.getElementById;</span><br><span class="line">getId(&apos;div&apos;);  //但是会报错...</span><br></pre></td></tr></table></figure>
-<p>这是因为document.getElementById内部的this实际上在调用的时候 是需要指向document的,所以我们需要手动修正this</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById = (function (fn)&#123;</span><br><span class="line">    return function ()&#123;</span><br><span class="line">        return fn.apply(document,arguments);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(document.getElementById)</span><br></pre></td></tr></table></figure>
-<p>对于上面的代码，等式右边的函数自执行的结果为内部的匿名函数，但是执行的时候相当于先把之前的 document.getElementById 保存到fn中了，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var fn = document.getElementById;</span><br><span class="line">document.getElementById = function ()&#123;</span><br><span class="line">    return fn.apply(document,arguments) //传进来的实参在arguments中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后当用变量再次存储document.getElementById的时候这时候实际运行的是上面第二个等式后面的函数，然后返回的之前存储的fn运行的结果，但是在函数执行的时候，通过apply修正了this指向document。</p>
-<h4 id="2-Function-prototype-bind"><a href="#2-Function-prototype-bind" class="headerlink" title="2.Function.prototype.bind"></a>2.Function.prototype.bind</h4><p>大部分高级浏览器都实现了内置的Function.prototype.bind方法，用来指定内部的this指向，它返回一个修改this之后的函数，但是并不会想apply和<br>call那样直接执行函数，来看下面的代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	fn()&#123;</span><br><span class="line">		console.log(this);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">setTimeout(obj.fn, 1000);  //window</span><br><span class="line">setTimeout(obj.fn.bind(obj), 1000); //obj</span><br></pre></td></tr></table></figure>
-<p>那么咱们看看bind的实现原理是什么</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.bind = function(context)&#123;</span><br><span class="line">    var _this = this;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        return _this.apply(context,arguments);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也就是先把 之前的函数的引用保存起来，然后返回一个新的函数，只不过这个函数在执行的时候 返回的是保存的引用改变this之后的执行结果。</p>
-<h4 id="3-借用其它对象的方法"><a href="#3-借用其它对象的方法" class="headerlink" title="3.借用其它对象的方法"></a>3.借用其它对象的方法</h4><blockquote>
-<p>我们都知道，杜鹃既不会筑巢，也不会孵雏，而是把自己的蛋寄托给云雀等其他鸟类，让他们代为孵化和养育。同样，在JavaScript中也存在类似的借用现象。</p>
-</blockquote>
-<p>借用方法的第一种场景是“借用构造函数”，通过这种技术，可以实现一些类似继承的效果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var A = function (name)&#123;</span><br><span class="line">    console.log(name)</span><br><span class="line">&#125;;</span><br><span class="line">var B = function ()&#123;</span><br><span class="line">    A.apply(this,agruments);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">B.prototype.getName = function ()&#123;</span><br><span class="line">    console.log(this.name)</span><br><span class="line">&#125;</span><br><span class="line">var b = new B(&apos;momo&apos;);</span><br><span class="line">b.getName();  // momo</span><br></pre></td></tr></table></figure>
-<p>借用方法的第二种场景跟我们更加密切。<br>函数的参数列表arguments是一个类数组的对象，虽然它也有“小标”,但它并非正在的数组，所以不能像数组一样进行排序操作或者往集合里面添加一个新元素。这种情况下，我们常常会借用Array.prototype对象上的方法。比如想往arguments中添加一个新元素，通常会借用Array.prototype.push;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function ()&#123;</span><br><span class="line">    Array.prototype.push.call(arguments,3);</span><br><span class="line">    console.log(arguments);   // [1, 2, 3]</span><br><span class="line">&#125;)(1,2)</span><br></pre></td></tr></table></figure>
-<p>在操作arguments的时候我们经常频繁的去找Array.prototype对象借用方法。<br>想把arguments转换成真正的数组的时候，可以借用Array.prototype.slice方法，想截取arguments列表中第一个元素的时候，由可以借用Array.prototype.shift方法。这些借用其实很常见，没什么好说的，那么他们内部实现的机制原理是什么呢？ 不妨咱们翻开v8引擎的源码来看看吧！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function ArrayPush()&#123;</span><br><span class="line">    var n = TO_UINT32(this.length); //被push对象的length</span><br><span class="line">    var m = %_ArgumentsLength(); //push的参数个数</span><br><span class="line">    for(var i=0; i&lt;m; i++)&#123;</span><br><span class="line">        this[i+n] = %_Arguments[i]; //赋值元素</span><br><span class="line">    &#125;</span><br><span class="line">    this.length = m + n;</span><br><span class="line">    return this.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过上面这段代码可以看到，Array.prototype.push实际上是一个属性赋值的过过程，把参数按照下标依次添加到被push的对象上面，顺便修改了这个对象的length属性。至于被修改的对象是谁，到底是个数组还是个对象，这个并不重要。</p>
-<p>那么改写成 JavaScript 的代码 push 应该是这样的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var Utils = &#123;</span><br><span class="line">    push()&#123;</span><br><span class="line">        var n = arguments[0].length || 0,</span><br><span class="line">            m = arguments.length - 1;</span><br><span class="line">        </span><br><span class="line">        for(var i=0; i &lt; m; i++)&#123;</span><br><span class="line">            arguments[0][i+n] = arguments[i + 1]</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        arguments[0].length = m + n;</span><br><span class="line">        </span><br><span class="line">        return arguments[0].length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var o = &#123;&#125;;</span><br><span class="line">Utils.push(o,1,2,3); // 3</span><br><span class="line">console.log(o); //Object &#123;0: 1, 1: 2, 2: 3, length: 3&#125;</span><br></pre></td></tr></table></figure>
-<p>由此可以推断我们可以把“任意”的对象传入Array.prototype.push。为什么要把“任意”这两个字加引号呢？ 因为这个对象其实还要满足2各条件：</p>
-<blockquote>
-<ul>
-<li>对象本身可以存储属性</li>
-<li>对象的length属性可读可写</li>
-</ul>
-</blockquote>
-<p>对于第一个条件，对象本身存取属性并没有问题，但是如果借用Array.prototype.push方法的不是一个Object类型数据，而是一个number类型的数据呢？我们无法在number身上存取其他数据，那么从下面的测试代码可以发现，一个number类型的数据不可能借用到这个方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;</span><br><span class="line">Array.prototype.push.call(a,&apos;first&apos;);</span><br><span class="line">alert(a.length)  // undefined</span><br><span class="line">alert(a[0]) //undefined</span><br></pre></td></tr></table></figure>
-<p>对于第二个条件，函数的length属性就是只读的，表示形参的个数，我们尝试把一个函数当做this传入Array.prototype.push：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fn = function ()&#123;&#125;;</span><br><span class="line">Array.prototype.push.call(fn,&apos;first&apos;); //报错</span><br><span class="line">alert(fn.length);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-      
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-BOM 和 DOM"  class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-BOM 和 DOM" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -269,6 +167,10 @@ var themeMenus = {};
 	</a>
 
       
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -533,214 +435,67 @@ var themeMenus = {};
       
             
       
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/03/03/hello-world/">Hello World</a>
-    </h1>
-  
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
 
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2018/03/03/hello-world/" class="article-date">
-	  <time datetime="2018-03-03T14:06:49.087Z" itemprop="datePublished">三月 3, 2018</time>
-	</a>
+		       if (typeof LivereTower === 'function') { return; }
 
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
 
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-      
-            
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
       
     </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/11/apply和call的用法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
 <!-- Table of Contents -->
 
-  
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM-和-DOM"><span class="nav-number">1.</span> <span class="nav-text">BOM 和 DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-BOM"><span class="nav-number">1.0.1.</span> <span class="nav-text">什么是 BOM ?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#navigator"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">navigator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#history"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#screen"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">screen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定时器"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">定时器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弹窗、对话框"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">弹窗、对话框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#焦点事件"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">焦点事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#窗口尺寸和滚动条"><span class="nav-number">1.0.1.8.</span> <span class="nav-text">窗口尺寸和滚动条</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM"><span class="nav-number">2.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#节点层次"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">节点层次</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作元素节点"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">操作元素节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作文本节点"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">操作文本节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#document-的一些属性和方法"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">document 的一些属性和方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素的属性操作"><span class="nav-number">2.0.0.5.</span> <span class="nav-text">元素的属性操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取元素节点"><span class="nav-number">2.0.0.6.</span> <span class="nav-text">获取元素节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#classList-对象"><span class="nav-number">2.0.0.7.</span> <span class="nav-text">classList 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对表格的操作"><span class="nav-number">2.0.0.8.</span> <span class="nav-text">对表格的操作</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取元素的宽高和位置"><span class="nav-number">3.</span> <span class="nav-text">获取元素的宽高和位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#详解-offset-client-scroll"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">详解 offset client scroll</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    <div class="widget-wrap" style="margin: 20px 0;">
-	<div id="search-form-wrap">
-
-    <form class="search-form">
-        <label style="width: 75%;">
-            <span class="screen-reader-text">Search for:</span>
-            <input type="search" class="search-field" style="height: 42px;" placeholder=" 搜索…" value="" name="s" title="Search for:">
-        </label>
-        <input type="submit" class="search-form-submit" value="搜索">
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(无标题)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
-
-</div>
-</div>
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">联系我们</h3>
-    <div class="widget widget_athemes_social_icons">
-
-    	<ul class="clearfix widget-social-icons">   
-    	
-          
-     			  <li><a href="https://github.com/Zhouyi827" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-            <li><a href="mailto:zhouyi_node@163.com?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
-          
-   		
-   		</ul>
-
-
-   		<!--
-   		<ul class="clearfix widget-social-icons">   		
-   		<li class="widget-si-twitter"><a href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
-		<li class="widget-si-facebook"><a href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
-			<li class="widget-si-gplus"><a href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
-			<li class="widget-si-pinterest"><a href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
-			<li class="widget-si-flickr"><a href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
-			<li class="widget-si-instagram"><a href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
-		</ul> -->
-
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget_athemes_tabs">
-    <ul id="widget-tab" class="clearfix widget-tab-nav">
-      <li class="active"><a>最新文章</a></li>
-    </ul>
-    <div class="widget">
-      <ul>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/03/11/apply和call的用法/">(no title)</a></h6>
-              <span>三月 11, 2018</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/03/11/BOM 和 DOM/">(no title)</a></h6>
-              <span>三月 11, 2018</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/03/03/hello-world/">Hello World</a></h6>
-              <span>三月 3, 2018</span>
-            </div>
-
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
         
       </div>
       <footer id="footer" class="site-footer">
