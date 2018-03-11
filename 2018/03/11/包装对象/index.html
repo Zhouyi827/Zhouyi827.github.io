@@ -13,23 +13,23 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>week 个人博客 | Week of blog.</title>
+  <title>浅谈js的包装对象 | Week of blog.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta name="description" content="这是我的个人博客！！！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="week 个人博客">
-<meta property="og:url" content="http://Zhouyi827.github.io/about/index.html">
+  <meta name="description" content="JS提供了11种引用类型：Object、Array、Date、Function、Error、RegExp、Math、Number、String、Boolean、Globle。其中包括了三种基本包装类型，也就是Number、String和Boolean，它们是特殊的引用类型，既与其他的引用类型相似，同时又具有与各自的原始类型相应的特殊行为。 ###一、什么是包装类型？ 因为这字符串、数值、布尔三种原">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈js的包装对象">
+<meta property="og:url" content="http://Zhouyi827.github.io/2018/03/11/包装对象/index.html">
 <meta property="og:site_name" content="Week of blog.">
-<meta property="og:description" content="这是我的个人博客！！！">
+<meta property="og:description" content="JS提供了11种引用类型：Object、Array、Date、Function、Error、RegExp、Math、Number、String、Boolean、Globle。其中包括了三种基本包装类型，也就是Number、String和Boolean，它们是特殊的引用类型，既与其他的引用类型相似，同时又具有与各自的原始类型相应的特殊行为。 ###一、什么是包装类型？ 因为这字符串、数值、布尔三种原">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-04T04:01:50.433Z">
+<meta property="og:updated_time" content="2018-03-11T12:03:53.278Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="week 个人博客">
-<meta name="twitter:description" content="这是我的个人博客！！！">
+<meta name="twitter:title" content="浅谈js的包装对象">
+<meta name="twitter:description" content="JS提供了11种引用类型：Object、Array、Date、Function、Error、RegExp、Math、Number、String、Boolean、Globle。其中包括了三种基本包装类型，也就是Number、String和Boolean，它们是特殊的引用类型，既与其他的引用类型相似，同时又具有与各自的原始类型相应的特殊行为。 ###一、什么是包装类型？ 因为这字符串、数值、布尔三种原">
   
     <link rel="alternate" href="/atom.xml" title="Week of blog." type="application/atom+xml">
   
@@ -81,7 +81,7 @@ var themeMenus = {};
 </script>
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   <header id="allheader" class="site-header" role="banner">
@@ -153,7 +153,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main"><article id="page-"  class="article article-type-page" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-包装对象" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -161,7 +161,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      week 个人博客
+      浅谈js的包装对象
     </h1>
   
 
@@ -169,6 +169,10 @@ var themeMenus = {};
     
     <div class="article-meta">
       
+	Posted on <a href="/2018/03/11/包装对象/" class="article-date">
+	  <time datetime="2018-03-11T12:05:49.559Z" itemprop="datePublished">三月 11, 2018</time>
+	</a>
+
       
 	<span id="busuanzi_container_page_pv">
 	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -177,7 +181,21 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的个人博客！！！</p>
+        <p>JS提供了11种引用类型：Object、Array、Date、Function、Error、RegExp、Math、Number、String、Boolean、Globle。其中包括了三种基本包装类型，也就是Number、String和Boolean，它们是特殊的引用类型，既与其他的引用类型相似，同时又具有与各自的原始类型相应的特殊行为。</p>
+<p>###一、什么是包装类型？</p>
+<p>因为这字符串、数值、布尔三种原始类型的值，在一定条件下会自动转化为对象，因此被称为原始类型的“包装类型”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例如：var a1=&quot;some text&quot;;</span><br><span class="line"></span><br><span class="line">   var a2=a1.substring(0,2);</span><br><span class="line"></span><br><span class="line">  console.log(a2);//&quot;so&quot;</span><br></pre></td></tr></table></figure>
+<p>上面这个例子中，变量a1是一个字符串，字符创必然是基本类型的值，但是它却在第二行调用了substring()方法，并将结果返回保存在a2中，我们都知道，既然a1是基本类型的值而不是对象，因而从逻辑上讲，它是没有方法的。其实在在实现这个操作的时候，JS内部已经隐式地帮我们帮创建了一个包装对象了，以上的实际的情形应该是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a1=new String(&quot;some text&quot;);</span><br><span class="line"></span><br><span class="line">var a2=a1.substring(0,2);</span><br><span class="line"></span><br><span class="line">a1=null;</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">console.log(a2);//&quot;so&quot;</span><br></pre></td></tr></table></figure>
+<p>####但是这两种方式还是有区别的：</p>
+<p>####区别一：浏览器自己隐式创建的包装对象和你显式创建的包装对象不严格相等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a1=&quot;test&quot;;</span><br><span class="line"></span><br><span class="line">var a2=new String(&quot;test&quot;);</span><br><span class="line"></span><br><span class="line">console.log(a1==a2);//true</span><br><span class="line"></span><br><span class="line">console.log(a1===a2);//false</span><br></pre></td></tr></table></figure>
+<p>####区别2：</p>
+<p>####隐式创建的包装对象，在使用完后之后就会被销毁了。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var s1=&quot;some text&quot;;</span><br><span class="line"></span><br><span class="line">var s1.color=&quot;red&quot;;</span><br><span class="line"></span><br><span class="line">console.log(s1.color);//undefined</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码，在第二行代码试图为一个字符s1添加一个color属性，但是当第三行再次访问的时候，color属性已经不见了。原因就是第二行代码创建的String对象在执行第三行代码时已经被销毁了，第三行代码又创建来了自己的String对象，可是没有了color属性，所以最终返回的值是undefined。</p>
+<p>在实际运用中，我们可以显式的调用String、Number和Boolean来创建基本包装类型的对象，不过，应该在绝对必要的时候再这么做，因为这种做法很容易让人分不清自己是在处理基本类型还是引用类型。对基本包装类型的实例调用 typeof 会返回object。</p>
+<p>###二、包装类型和引用类型的区别</p>
+<p>引用类型和包装类型的主要区别是对象的生存期。使用new操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动穿件的基本包转类型的对象，则只存在于一行代码的执行期间，然后立即被销毁，这也意味着我们不能在运行时为基本类型添加属性和方法。</p>
 
       
     </div>
@@ -215,170 +233,30 @@ var themeMenus = {};
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/11/apply和call的用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">apply和call的用法</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
 <!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav">无</ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    <div class="widget-wrap" style="margin: 20px 0;">
-	<div id="search-form-wrap">
-
-    <form class="search-form">
-        <label style="width: 75%;">
-            <span class="screen-reader-text">Search for:</span>
-            <input type="search" class="search-field" style="height: 42px;" placeholder=" 搜索…" value="" name="s" title="Search for:">
-        </label>
-        <input type="submit" class="search-form-submit" value="搜索">
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(无标题)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
-
-</div>
-</div>
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">联系我们</h3>
-    <div class="widget widget_athemes_social_icons">
-
-    	<ul class="clearfix widget-social-icons">   
-    	
-          
-     			  <li><a href="https://github.com/Zhouyi827" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-          
-   		
-          
-            <li><a href="mailto:zhouyi_node@163.com?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
-          
-   		
-   		</ul>
-
-
-   		<!--
-   		<ul class="clearfix widget-social-icons">   		
-   		<li class="widget-si-twitter"><a href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
-		<li class="widget-si-facebook"><a href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
-			<li class="widget-si-gplus"><a href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
-			<li class="widget-si-pinterest"><a href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
-			<li class="widget-si-flickr"><a href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
-			<li class="widget-si-instagram"><a href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
-		</ul> -->
-
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget_athemes_tabs">
-    <ul id="widget-tab" class="clearfix widget-tab-nav">
-      <li class="active"><a>最新文章</a></li>
-    </ul>
-    <div class="widget">
-      <ul>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/03/11/包装对象/">浅谈js的包装对象</a></h6>
-              <span>三月 11, 2018</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/03/11/apply和call的用法/">apply和call的用法</a></h6>
-              <span>三月 11, 2018</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/03/11/BOM 和 DOM/">BOM 和 DOM</a></h6>
-              <span>三月 11, 2018</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2018/03/03/hello-world/">Hello World</a></h6>
-              <span>三月 3, 2018</span>
-            </div>
-
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
         
       </div>
       <footer id="footer" class="site-footer">
